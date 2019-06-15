@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
   createAppContainer, createStackNavigator,
-  createDrawerNavigator, StackActions, NavigationActions, createMaterialTopTabNavigator
+  createDrawerNavigator, StackActions, NavigationActions,
+   createMaterialTopTabNavigator, createSwitchNavigator
 } from 'react-navigation';
 import { Icon } from 'native-base'
 
@@ -10,6 +11,7 @@ import Banner from './app/components/Banner'
 import HomeScreen from './app/components/HomeScreen'
 import ContentContainer from './app/components/ContentContainer'
 import Details from './app/components/Details'
+import Login from './app/components/Login';
 
 
 export default class App extends Component {
@@ -91,4 +93,13 @@ const AppDrawerNavigator = createDrawerNavigator(
   }
 );
 
-const AppContainer = createAppContainer(AppDrawerNavigator);
+const LandingNavigator = createSwitchNavigator({
+  Landing: {
+    screen: Login
+  },
+  HomeApp: {
+    screen: AppDrawerNavigator
+  },
+});
+
+const AppContainer = createAppContainer(LandingNavigator);

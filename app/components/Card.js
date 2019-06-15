@@ -7,7 +7,7 @@ import styled from "styled-components";
 export default class Card extends Component {
     render() {
         return (
-            <MyBanner>
+            <MyBanner style={{elevation: 1}}>
                 <Text >{this.props.title}</Text>
                 <Text >{this.props.subtitle}</Text>
                 <Text >{this.props.caption}</Text>
